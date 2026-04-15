@@ -1,0 +1,2 @@
+:HL["/skape-parallax/_next/static/chunks/124e2gf77.kvd.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"qiPyu6l3YcAs8X_ypRsDz"}
