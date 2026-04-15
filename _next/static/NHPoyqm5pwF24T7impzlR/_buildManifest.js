@@ -3,8 +3,8 @@ self.__BUILD_MANIFEST = {
     "afterFiles": [],
     "beforeFiles": [
       {
-        "source": "/skape-parallax//_next/:path+",
-        "destination": "/skape-parallax/_next/:path+"
+        "source": "/SKAPE_final//_next/:path+",
+        "destination": "/SKAPE_final/_next/:path+"
       }
     ],
     "fallback": []
