@@ -36,7 +36,7 @@ a {
 
 .hero-scene {
   position: relative;
-  height: 285vh;
+  height: 420vh;
 }
 
 .hero-sticky {
@@ -74,33 +74,33 @@ a {
 
 .hero-brand {
   font-family: var(--font-body);
-  letter-spacing: 0.12em;
-  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  font-size: 2.1rem;
   font-weight: 800;
 }
 
 .hero-nav nav {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 2.25rem;
 }
 
 .hero-nav nav a {
-  font-family: var(--font-mono);
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.62rem;
-  color: rgba(16, 20, 27, 0.75);
+  font-family: var(--font-body);
+  letter-spacing: 0.01em;
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: rgba(16, 20, 27, 0.9);
 }
 
 .hero-nav-cta {
   border-radius: 999px;
-  border: 1px solid rgba(16, 20, 27, 0.2);
-  padding: 0.72rem 1.15rem;
-  font-size: 0.72rem;
+  border: 1px solid rgba(16, 20, 27, 0.08);
+  padding: 0.82rem 1.45rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.65);
+  background: #121720;
+  color: #f2f6fb;
 }
 
 .cloud {
@@ -137,10 +137,10 @@ a {
 
 .hero-intro {
   position: absolute;
-  top: 14vh;
+  top: 24vh;
   left: 50%;
   z-index: 15;
-  width: min(90vw, 980px);
+  width: min(95vw, 1250px);
   text-align: center;
   transform: translateX(-50%);
   will-change: opacity, transform;
@@ -156,9 +156,10 @@ a {
 }
 
 .hero-intro h1 {
-  margin: 1.25rem 0 1rem;
-  font-size: clamp(2.5rem, 8vw, 7rem);
-  line-height: 0.94;
+  margin: 0 0 1.35rem;
+  font-size: clamp(3.1rem, 7vw, 8.2rem);
+  line-height: 0.98;
+  white-space: nowrap;
   letter-spacing: -0.03em;
   font-family: var(--font-body);
   font-weight: 800;
@@ -166,13 +167,13 @@ a {
 
 .hero-subtext {
   margin: 0 auto;
-  width: min(90%, 620px);
-  font-size: clamp(0.9rem, 1.6vw, 1.24rem);
+  width: min(90%, 840px);
+  font-size: clamp(1rem, 1.4vw, 1.65rem);
   color: rgba(20, 28, 40, 0.6);
 }
 
 .hero-actions {
-  margin-top: 1.8rem;
+  margin-top: 2.1rem;
   display: flex;
   justify-content: center;
   gap: 0.8rem;
@@ -191,6 +192,8 @@ a {
 .btn-dark {
   background: #151a24;
   color: #f6f8fc;
+  padding: 1rem 1.9rem;
+  font-size: 0.82rem;
 }
 
 .btn-light {
@@ -201,9 +204,9 @@ a {
 
 .hero-house {
   position: absolute;
-  bottom: -38vh;
+  bottom: -31vh;
   left: 50%;
-  width: min(78vw, 1220px);
+  width: min(74vw, 1160px);
   height: auto;
   z-index: 12;
   will-change: transform;
@@ -228,6 +231,16 @@ a {
   letter-spacing: -0.03em;
 }
 
+.hero-wordmark-main-split {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.hero-letter {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
 .hero-wordmark-sub {
   display: block;
   margin-top: 0.25rem;
@@ -239,18 +252,21 @@ a {
 .hero-wordmark-outline .hero-wordmark-main,
 .hero-wordmark-outline .hero-wordmark-sub {
   color: transparent;
-  -webkit-text-stroke: 1.25px rgba(255, 255, 255, 0.75);
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.9);
 }
 
 .hero-wordmark-fill {
   color: transparent;
   background-image:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0)),
-    url("/assets/house.webp");
-  background-position: center 47%;
-  background-size: cover;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.02)),
+    url("/assets/house.webp"),
+    linear-gradient(120deg, rgba(31, 47, 70, 0.95), rgba(67, 92, 126, 0.9));
+  background-position: center 48%, center 56%, center;
+  background-size: cover, 128% auto, cover;
   -webkit-background-clip: text;
   background-clip: text;
+  -webkit-text-stroke: 1px rgba(236, 243, 252, 0.68);
+  text-shadow: 0 8px 22px rgba(17, 28, 42, 0.26);
 }
 
 .hero-wordmark-fill .hero-wordmark-sub {
@@ -441,12 +457,12 @@ a {
   }
 
   .hero-intro {
-    top: 14vh;
+    top: 18vh;
   }
 
   .hero-house {
-    width: min(124vw, 980px);
-    bottom: -23vh;
+    width: min(122vw, 950px);
+    bottom: -21vh;
   }
 
   .hero-wordmark {
@@ -466,11 +482,11 @@ a {
 
 @media (max-width: 700px) {
   .hero-scene {
-    height: 250vh;
+    height: 340vh;
   }
 
   .hero-brand {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 
   .hero-nav-cta {
@@ -479,7 +495,8 @@ a {
   }
 
   .hero-intro h1 {
-    font-size: clamp(2.15rem, 13vw, 3.7rem);
+    font-size: clamp(2rem, 10.5vw, 3.45rem);
+    white-space: normal;
   }
 
   .hero-subtext {
