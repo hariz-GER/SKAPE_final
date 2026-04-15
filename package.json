@@ -2,13 +2,15 @@
   "name": "skape-parallax",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
+ "scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "export": "next export",
+  "start": "next start",
+  "deploy": "next build && next export && gh-pages -d out"
+},
   "dependencies": {
+    "gh-pages": "^6.3.0",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
