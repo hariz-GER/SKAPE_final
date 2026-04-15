@@ -1,4 +1,5 @@
 import ParallaxHero from "@/components/ParallaxHero";
+import StatsCounter from "@/components/StatsCounter";
 
 const services = [
   {
@@ -51,20 +52,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="stats-grid">
-            <article>
-              <strong>20+</strong>
-              <span>Years of Excellence</span>
-            </article>
-            <article>
-              <strong>150+</strong>
-              <span>Projects Delivered</span>
-            </article>
-            <article>
-              <strong>100%</strong>
-              <span>Client Satisfaction</span>
-            </article>
-          </div>
+          <StatsCounter />
         </div>
       </section>
 
