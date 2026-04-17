@@ -24,6 +24,9 @@ const WORDMARK_LETTERS = ["S", "K", "A", "P", "E"] as const;
 export default function ParallaxHero() {
   const sceneRef = useRef<HTMLElement>(null);
   const [progress, setProgress] = useState(0);
+  const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
+  const servicesMenuRef = useRef<HTMLDivElement>(null);
+  const servicesButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     let rafId = 0;
@@ -64,6 +67,39 @@ export default function ParallaxHero() {
       window.cancelAnimationFrame(rafId);
     };
   }, []);
+
+  useEffect(() => {
+    const onPointerDown = (event: PointerEvent) => {
+      if (!servicesMenuOpen) {
+        return;
+      }
+
+      const target = event.target as Node | null;
+      if (!target) {
+        return;
+      }
+
+      if (servicesMenuRef.current?.contains(target) || servicesButtonRef.current?.contains(target)) {
+        return;
+      }
+
+      setServicesMenuOpen(false);
+    };
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setServicesMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [servicesMenuOpen]);
 
   const introPhase = easeInOut(segment(progress, 0.04, 0.36));
   const introOpacity = 1 - introPhase;
@@ -114,18 +150,79 @@ export default function ParallaxHero() {
       <div className="hero-sticky">
         <div className="hero-sky" />
 
-        <header className="hero-nav">
+        <header className={`hero-nav ${servicesMenuOpen ? "is-mega-open" : ""}`}>
           <div className="hero-brand">SKAPE</div>
-          <nav>
-            <a href="#services">Search</a>
-            <a href="#services">Agents</a>
-            <a href="#about">Join</a>
-            <a href="#services">Paperwork</a>
-            <a href="#services">Resources</a>
-            <a href="#about">About</a>
+          <nav className="hero-nav-links" aria-label="Primary">
+            <div
+              className="hero-nav-item nav-services"
+              ref={servicesMenuRef}
+              onMouseEnter={() => setServicesMenuOpen(true)}
+              onMouseLeave={() => setServicesMenuOpen(false)}
+            >
+              <button
+                ref={servicesButtonRef}
+                type="button"
+                className="hero-nav-link hero-nav-button"
+                aria-haspopup="true"
+                aria-expanded={servicesMenuOpen}
+                aria-controls="services-menu"
+                onClick={() => setServicesMenuOpen((open) => !open)}
+              >
+                Services
+              </button>
+
+              <div
+                id="services-menu"
+                className={`hero-mega ${servicesMenuOpen ? "is-open" : ""}`}
+                role="menu"
+              >
+                <div className="hero-mega-col hero-mega-primary" role="presentation">
+                  <a className="is-active" href="#services" role="menuitem" onClick={() => setServicesMenuOpen(false)}>
+                    Services
+                  </a>
+                  <a href="#portfolio" role="menuitem" onClick={() => setServicesMenuOpen(false)}>
+                    Portfolio
+                  </a>
+                  <a href="#about" role="menuitem" onClick={() => setServicesMenuOpen(false)}>
+                    About
+                  </a>
+                  <a href="#contact" role="menuitem" onClick={() => setServicesMenuOpen(false)}>
+                    Contact
+                  </a>
+                </div>
+
+                <div className="hero-mega-col hero-mega-secondary" role="presentation">
+                  <a href="#architectural-design" role="menuitem" onClick={() => setServicesMenuOpen(false)}>
+                    Architectural Design
+                  </a>
+                  <a href="#planning-applications" role="menuitem" onClick={() => setServicesMenuOpen(false)}>
+                    Planning Applications
+                  </a>
+                  <a href="#interior-design" role="menuitem" onClick={() => setServicesMenuOpen(false)}>
+                    Interior Design
+                  </a>
+                  <a href="#conservation-heritage-design" role="menuitem" onClick={() => setServicesMenuOpen(false)}>
+                    Conservation &amp; Heritage Design
+                  </a>
+                  <a href="#create-construct" role="menuitem" onClick={() => setServicesMenuOpen(false)}>
+                    Create &amp; Construct
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <a className="hero-nav-link" href="#portfolio">
+              Portfolio
+            </a>
+            <a className="hero-nav-link" href="#about">
+              About
+            </a>
+            <a className="hero-nav-link" href="#contact">
+              Contact
+            </a>
           </nav>
           <a className="hero-nav-cta" href="#contact">
-            Sign In
+            Get Quote
           </a>
         </header>
 
