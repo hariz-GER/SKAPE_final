@@ -250,7 +250,7 @@ export default function ParallaxHero() {
           </p>
           <div className="hero-actions">
             <a href="#services" className="btn btn-dark">
-              Find Properties →
+              Find Your Arch →
             </a>
           </div>
         </div>
