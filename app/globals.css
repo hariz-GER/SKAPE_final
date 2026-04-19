@@ -625,6 +625,105 @@ a {
   font-size: 1rem;
 }
 
+.portfolio-projects {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.portfolio-project {
+  border: 1px solid rgba(16, 20, 27, 0.1);
+  border-radius: 30px;
+  padding: clamp(1.35rem, 3.2vw, 2.4rem);
+  background: rgba(255, 255, 255, 0.66);
+  box-shadow: 0 26px 60px rgba(13, 21, 33, 0.06);
+  backdrop-filter: blur(16px);
+}
+
+.portfolio-project-header {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.portfolio-project-kicker {
+  margin: 0;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.66rem;
+  color: rgba(20, 28, 40, 0.64);
+}
+
+.portfolio-project-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.85rem, 3.2vw, 3rem);
+  letter-spacing: -0.02em;
+}
+
+.portfolio-project-meta {
+  margin: 0;
+  color: rgba(20, 28, 40, 0.72);
+  max-width: 70ch;
+  line-height: 1.75;
+}
+
+.portfolio-project-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr;
+  gap: clamp(1.4rem, 3vw, 2.4rem);
+  align-items: start;
+}
+
+.portfolio-project-body {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.portfolio-brief {
+  border-top: 1px solid rgba(16, 20, 27, 0.08);
+  padding-top: 1.05rem;
+}
+
+.portfolio-brief h4 {
+  margin: 0 0 0.55rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  color: rgba(16, 20, 27, 0.92);
+}
+
+.portfolio-brief p {
+  margin: 0.55rem 0 0;
+  line-height: 1.85;
+  color: rgba(20, 28, 40, 0.72);
+  font-size: 0.98rem;
+}
+
+.portfolio-project-media {
+  display: grid;
+  gap: 1rem;
+}
+
+.portfolio-media {
+  margin: 0;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(16, 20, 27, 0.1);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(199, 222, 246, 0.32), transparent 54%),
+    linear-gradient(180deg, rgba(253, 248, 242, 0.9), rgba(255, 255, 255, 0.75));
+}
+
+.portfolio-media-image {
+  object-fit: cover;
+}
+
 .contact {
   padding: 5.2rem 0 6.4rem;
   background:
@@ -698,7 +797,8 @@ a {
 
   .about-grid,
   .services-grid,
-  .contact-shell {
+  .contact-shell,
+  .portfolio-project-grid {
     grid-template-columns: 1fr;
   }
 
