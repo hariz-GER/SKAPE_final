@@ -465,7 +465,7 @@ a {
   display: block;
   margin-top: 0.25rem;
   font-family: var(--font-body);
-  font-size: clamp(1.6rem, 5vw, 5rem);
+  font-size: clamp(1.25rem, 3.8vw, 3.75rem);
   font-weight: 600;
   letter-spacing: 0.04em;
 }
@@ -872,7 +872,7 @@ a {
   }
 
   .hero-wordmark-sub {
-    font-size: clamp(1.25rem, 8.6vw, 2.6rem);
+    font-size: clamp(1.05rem, 7.2vw, 2.15rem);
   }
 
   .about-strip,

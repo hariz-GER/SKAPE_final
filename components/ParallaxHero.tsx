@@ -105,11 +105,12 @@ export default function ParallaxHero() {
   const introOpacity = 1 - introPhase;
   const introLift = lerp(0, -84, introPhase);
 
-  const houseEnter = easeInOut(segment(progress, 0.1, 0.78));
-  const houseExit = easeInOut(segment(progress, 0.9, 0.99));
-  const houseY = lerp(24, -1, houseEnter) + lerp(0, -18, houseExit);
-  const houseScale = lerp(0.78, 1.16, houseEnter);
-  const houseOpacity = 1 - houseExit * 0.95;
+  const houseEnter = easeInOut(segment(progress, 0.1, 0.62));
+  const houseScroll = easeInOut(segment(progress, 0.1, 1));
+  const houseExit = easeInOut(segment(progress, 0.82, 1));
+  const houseY = lerp(24, -10, houseEnter) + lerp(0, -28, houseScroll) + lerp(0, -22, houseExit);
+  const houseScale = lerp(0.78, 1.36, houseEnter);
+  const houseOpacity = 1 - houseExit * 0.96;
 
   const cloudDrift = easeInOut(segment(progress, 0, 1));
   const cloudFarX = lerp(-8, 10, cloudDrift);
