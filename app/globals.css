@@ -36,19 +36,26 @@ a {
 
 .hero-scene {
   position: relative;
-  height: 420vh;
+  height: 400vh;
 }
 
 .hero-sticky {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  inset: 0;
   height: 100vh;
+  width: 100%;
   overflow: clip;
   isolation: isolate;
+  z-index: 0;
   background:
     radial-gradient(circle at 15% 75%, rgba(255, 183, 132, 0.5), transparent 48%),
     radial-gradient(circle at 86% 24%, rgba(193, 222, 255, 0.48), transparent 42%),
     linear-gradient(180deg, #bdd5ef 0%, #d7e5f5 46%, #f7ecde 100%);
+}
+
+.page-content {
+  position: relative;
+  z-index: 10;
 }
 
 .hero-sky {
