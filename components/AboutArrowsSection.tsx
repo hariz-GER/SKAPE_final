@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 const arrows = [
   {
@@ -20,13 +23,69 @@ const arrows = [
 ];
 
 export default function AboutArrowsSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [centerActive, setCenterActive] = useState(false);
+  const hasTriggeredRef = useRef(false);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) {
+      return;
+    }
+
+    const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+
+    if (prefersReducedMotion) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        if (hasTriggeredRef.current) {
+          return;
+        }
+
+        hasTriggeredRef.current = true;
+        setCenterActive(true);
+      },
+      {
+        root: null,
+        threshold: 0,
+        rootMargin: "-45% 0px -45% 0px"
+      }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="about-arrows-section" aria-label="Skape approach">
+    <section
+      ref={sectionRef}
+      className={`about-arrows-section ${centerActive ? "is-center-active" : ""}`}
+      aria-label="Skape approach"
+    >
       <div className="section-shell about-arrows-shell">
         <h2 className="about-arrows-title">
           <span className="about-arrows-title-strong">This isn&apos;t just about</span>{" "}
           <span className="about-arrows-title-muted">real estate.</span>
         </h2>
+
+        <div className="about-arrows-video" aria-hidden="true">
+          <video
+            className="about-arrows-video-el"
+            src="/assets/why-us.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
+        </div>
 
         <div className="about-arrows-row" role="list" aria-label="Skape highlights">
           {arrows.map((arrow) => (

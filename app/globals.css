@@ -324,6 +324,13 @@ a {
   .portfolio-project-collapsible {
     transition: none;
   }
+
+  .about-arrows-section.is-center-active .about-arrow {
+    animation: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
 }
 
 .hero-nav-cta {
@@ -557,6 +564,26 @@ a {
   text-align: center;
 }
 
+.about-arrows-video {
+  width: min(980px, 92vw);
+  margin-top: 2.2rem;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(16, 20, 27, 0.1);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(199, 222, 246, 0.4), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(246, 248, 251, 0.7));
+  box-shadow: 0 24px 70px rgba(12, 22, 36, 0.08);
+}
+
+.about-arrows-video-el {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
 .about-arrows-title {
   margin: 0;
   font-family: var(--font-body);
@@ -607,6 +634,39 @@ a {
   object-fit: cover;
   transform: scale(1.08);
   filter: saturate(1.02) contrast(1.06);
+}
+
+.about-arrows-section.is-center-active .about-arrow {
+  animation: about-arrow-fade-out 900ms ease forwards;
+}
+
+.about-arrows-section.is-center-active .about-arrow:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.about-arrows-section.is-center-active .about-arrow:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.about-arrows-section.is-center-active .about-arrow:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+.about-arrows-section.is-center-active .about-arrow:nth-child(4) {
+  animation-delay: 360ms;
+}
+
+@keyframes about-arrow-fade-out {
+  from {
+    opacity: 1;
+    filter: none;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    filter: blur(1.2px);
+    transform: translateX(10px) scale(0.995);
+  }
 }
 
 .about-arrows-copy {
