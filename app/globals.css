@@ -10,6 +10,7 @@
   --font-display: "Bodoni Moda", "Didot", "Iowan Old Style", "Palatino Linotype", serif;
   --font-body: "Avenir Next", "Manrope", "Segoe UI", "Helvetica Neue", sans-serif;
   --font-mono: "Space Mono", "Menlo", "Consolas", monospace;
+  --chevron-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 346 440'%3E%3Cpath fill='%23000' d='M183.98 440 346 220 183.98 0H0l162.02 220L0 440h183.98Z'/%3E%3C/svg%3E");
 }
 
 * {
@@ -544,6 +545,78 @@ a {
   color: var(--ink-muted);
 }
 
+.about-arrows-section {
+  padding: 6.2rem 0 4.2rem;
+  background: #ffffff;
+  border-top: 1px solid rgba(16, 20, 27, 0.06);
+}
+
+.about-arrows-shell {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.about-arrows-title {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(2.1rem, 5.6vw, 4.4rem);
+  letter-spacing: -0.03em;
+  line-height: 1.06;
+}
+
+.about-arrows-title-strong {
+  color: rgba(16, 20, 27, 0.96);
+  font-weight: 700;
+}
+
+.about-arrows-title-muted {
+  color: rgba(16, 20, 27, 0.35);
+  font-weight: 600;
+}
+
+.about-arrows-row {
+  margin-top: 2.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.about-arrow {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(9rem, 15vw, 15.5rem);
+  aspect-ratio: 346 / 440;
+  -webkit-mask-image: var(--chevron-mask);
+  mask-image: var(--chevron-mask);
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  background: rgba(16, 20, 27, 0.06);
+}
+
+.about-arrow:not(:first-child) {
+  margin-left: clamp(-2.6rem, -4.2vw, -4.2rem);
+}
+
+.about-arrow-image {
+  object-fit: cover;
+  transform: scale(1.08);
+  filter: saturate(1.02) contrast(1.06);
+}
+
+.about-arrows-copy {
+  margin: 2.2rem 0 0;
+  max-width: 64ch;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(20, 28, 40, 0.7);
+}
+
 .about-strip {
   background: linear-gradient(180deg, #f8f3ec, #fbf8f1);
   padding: 6rem 0 4.5rem;
@@ -980,6 +1053,19 @@ a {
   .services,
   .contact {
     padding-top: 4.4rem;
+  }
+
+  .about-arrows-section {
+    padding: 4.8rem 0 3.4rem;
+  }
+
+  .about-arrows-row {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .about-arrow:not(:first-child) {
+    margin-left: 0;
   }
 
   .section-heading-row {

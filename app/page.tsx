@@ -1,4 +1,5 @@
 import ParallaxHero from "@/components/ParallaxHero";
+import AboutArrowsSection from "@/components/AboutArrowsSection";
 import PortfolioProjects from "@/components/PortfolioProjects";
 import StatsCounter from "@/components/StatsCounter";
 
@@ -46,6 +47,8 @@ export default function Home() {
       <ParallaxHero />
 
       <div className="page-content">
+        <AboutArrowsSection />
+
         <section id="about" className="about-strip">
           <div className="section-shell">
             <div className="section-heading-row">
