@@ -125,6 +125,7 @@ a {
 
 .hero-nav-item {
   position: relative;
+  pointer-events: auto;
 }
 
 .hero-nav-button {
@@ -184,6 +185,7 @@ a {
   opacity: 0;
   transition: opacity 220ms ease;
   pointer-events: none;
+  z-index: 0;
 }
 
 .hero-mega.is-open {
@@ -201,6 +203,7 @@ a {
   align-content: start;
   gap: 0.65rem;
   padding: 0.35rem 0.95rem;
+  pointer-events: auto;
 }
 
 .hero-mega-primary {
@@ -216,6 +219,8 @@ a {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 220ms ease, transform 220ms ease, color 180ms ease;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .hero-mega a:hover {
