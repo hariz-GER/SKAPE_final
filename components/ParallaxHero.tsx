@@ -142,9 +142,13 @@ export default function ParallaxHero() {
   const outlineScale = lerp(1.09, 1, outlineBuild);
 
   const fillIn = easeInOut(segment(progress, 0.95, 1));
-  const fillOpacity = fillIn;
+  const fillCarry = easeInOut(segment(progress, 0.72, 0.95));
+  const fillOpacity = Math.max(fillCarry * 0.75, fillIn);
   const fillScale = lerp(1.04, 1, fillIn);
   const fillY = lerp(24, 0, fillIn);
+
+  const wordmarkHouseY = clamp(62 + houseY * 0.35, 40, 78);
+  const wordmarkHouseSize = clamp(150 * houseScale, 120, 220);
 
   return (
     <section ref={sceneRef} id="home" className="hero-scene">
@@ -331,7 +335,9 @@ export default function ParallaxHero() {
           className="hero-wordmark hero-wordmark-fill"
           style={{
             opacity: fillOpacity,
-            transform: `translate(-50%, calc(-50% + ${fillY}px)) scale(${fillScale})`
+            transform: `translate(-50%, calc(-50% + ${fillY}px)) scale(${fillScale})`,
+            ["--wordmark-house-y" as string]: `${wordmarkHouseY}%`,
+            ["--wordmark-house-size" as string]: `${wordmarkHouseSize}%`
           }}
         >
           <span className="hero-wordmark-main">SKAPE</span>

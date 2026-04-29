@@ -490,16 +490,18 @@ a {
 
 .hero-wordmark-fill {
   color: transparent;
-  background-image:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.02)),
-    var(--wordmark-house),
-    linear-gradient(120deg, rgba(31, 47, 70, 0.95), rgba(67, 92, 126, 0.9));
-  background-position: center 48%, center 56%, center;
-  background-size: cover, 128% auto, cover;
+  --wordmark-house-x: 50%;
+  --wordmark-house-y: 62%;
+  --wordmark-house-size: 150%;
+  background-image: var(--wordmark-house);
+  background-position: var(--wordmark-house-x) var(--wordmark-house-y);
+  background-size: var(--wordmark-house-size) auto;
+  background-repeat: no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-stroke: 1px rgba(236, 243, 252, 0.68);
-  text-shadow: 0 8px 22px rgba(17, 28, 42, 0.26);
+  -webkit-text-stroke: 1px rgba(246, 250, 255, 0.78);
+  text-shadow: 0 10px 24px rgba(13, 22, 34, 0.22);
+  filter: saturate(1.1) contrast(1.1);
 }
 
 .hero-wordmark-fill .hero-wordmark-sub {
