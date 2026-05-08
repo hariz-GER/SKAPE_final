@@ -24,8 +24,7 @@ const arrows = [
 
 export default function AboutArrowsSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [centerActive, setCenterActive] = useState(false);
-  const hasTriggeredRef = useRef(false);
+  const [arrowsOpen, setArrowsOpen] = useState(false);
 
   useEffect(() => {
     const node = sectionRef.current;
@@ -36,26 +35,20 @@ export default function AboutArrowsSection() {
     const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
 
     if (prefersReducedMotion) {
+      setArrowsOpen(true);
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) {
-          return;
+        if (entry.isIntersecting) {
+          setArrowsOpen(true);
         }
-
-        if (hasTriggeredRef.current) {
-          return;
-        }
-
-        hasTriggeredRef.current = true;
-        setCenterActive(true);
       },
       {
         root: null,
-        threshold: 0,
-        rootMargin: "-45% 0px -45% 0px"
+        threshold: 0.2,
+        rootMargin: "-35% 0px -35% 0px"
       }
     );
 
@@ -66,7 +59,7 @@ export default function AboutArrowsSection() {
   return (
     <section
       ref={sectionRef}
-      className={`about-arrows-section ${centerActive ? "is-center-active" : ""}`}
+      className={`about-arrows-section ${arrowsOpen ? "is-arrows-open" : ""}`}
       aria-label="Skape approach"
     >
       <div className="section-shell about-arrows-shell">
