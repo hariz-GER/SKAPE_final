@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useId, useLayoutEffect, useRef, useState } from "react";
+import { withBasePath } from "@/lib/basePath";
 
 type PortfolioBrief = {
   title: string;
@@ -64,11 +65,11 @@ const projects: PortfolioProject[] = [
     ],
     media: [
       {
-        src: "/portfolio/mr-antony/bedroom.png",
+        src: withBasePath("/portfolio/mr-antony/bedroom.png"),
         alt: "Bedroom visual: layered drapery, botanical feature wall, and warm pendant lighting."
       },
       {
-        src: "/portfolio/mr-antony/kitchen.png",
+        src: withBasePath("/portfolio/mr-antony/kitchen.png"),
         alt: "Kitchen visual: deep blue cabinetry with brass hardware and a bright, minimal backsplash."
       }
     ]
@@ -120,11 +121,11 @@ const projects: PortfolioProject[] = [
     ],
     media: [
       {
-        src: "/portfolio/mr-sampath/living.png",
+        src: withBasePath("/portfolio/mr-sampath/living.png"),
         alt: "Living space visual: soft linear minimalism with vertical detailing and warm neutrals."
       },
       {
-        src: "/portfolio/mr-sampath/staircase.png",
+        src: withBasePath("/portfolio/mr-sampath/staircase.png"),
         alt: "Staircase visual: floating steps with airy, contemporary tropical spatial flow."
       }
     ]

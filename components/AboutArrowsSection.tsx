@@ -2,22 +2,23 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { withBasePath } from "@/lib/basePath";
 
 const arrows = [
   {
-    src: "/about-arrows/2.webp",
+    src: withBasePath("/about-arrows/2.webp"),
     alt: "Modern bedroom interior"
   },
   {
-    src: "/about-arrows/3.webp",
+    src: withBasePath("/about-arrows/3.webp"),
     alt: "Modern office interior"
   },
   {
-    src: "/about-arrows/4.webp",
+    src: withBasePath("/about-arrows/4.webp"),
     alt: "Executive portrait outdoors"
   },
   {
-    src: "/about-arrows/home-office-small.jpg",
+    src: withBasePath("/about-arrows/home-office-small.jpg"),
     alt: "Minimal home office rendering"
   }
 ];
@@ -71,7 +72,7 @@ export default function AboutArrowsSection() {
         <div className="about-arrows-video" aria-hidden="true">
           <video
             className="about-arrows-video-el"
-            src="/assets/why-us.mp4"
+            src={withBasePath("/assets/why-us.mp4")}
             autoPlay
             muted
             loop

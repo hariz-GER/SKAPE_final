@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { withBasePath } from "@/lib/basePath";
 
 function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
@@ -232,7 +233,7 @@ export default function ParallaxHero() {
         </header>
 
         <Image
-          src="/assets/cloud.webp"
+          src={withBasePath("/assets/cloud.webp")}
           alt=""
           aria-hidden="true"
           width={1024}
@@ -261,7 +262,7 @@ export default function ParallaxHero() {
         </div>
 
         <Image
-          src="/assets/house.webp"
+          src={withBasePath("/assets/house.webp")}
           alt="SKAPE featured building"
           width={1400}
           height={1245}
@@ -274,7 +275,7 @@ export default function ParallaxHero() {
         />
 
         <Image
-          src="/assets/cloud.webp"
+          src={withBasePath("/assets/cloud.webp")}
           alt=""
           aria-hidden="true"
           width={1024}
@@ -288,7 +289,7 @@ export default function ParallaxHero() {
         />
 
         <Image
-          src="/assets/cloud.webp"
+          src={withBasePath("/assets/cloud.webp")}
           alt=""
           aria-hidden="true"
           width={1024}
